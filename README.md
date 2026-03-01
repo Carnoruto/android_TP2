@@ -78,7 +78,7 @@ com.tonpackage/
 1. Cloner le dépôt :
 
 ```bash
-git clone <LIEN_DU_DEPOT>
+git clone <https://github.com/Carnoruto/android_TP2.git>
 ```
 
 2. Ouvrir le projet dans Android Studio 
