@@ -1,51 +1,65 @@
-# 🌀 L'Univers de Naruto App
+# 🌀 Naruto Universe - TP3
 
-Application Android développée en **Jetpack Compose** avec **Material 3**.
+Application Android développée avec **Jetpack Compose**, utilisant **Room (SQLite)**, **MVVM** et **DataStore**.
 
 ---
 
-## 🎯 Thème choisi
+## 🎯 Thème
 
-L’application est basée sur l’univers de **Naruto & Boruto**.
+Application basée sur l’univers de **Naruto & Boruto**.
 
-Elle affiche deux listes distinctes :
-- 🌀 Personnages de Naruto
-- ⚡ Personnages de Boruto
-
-Chaque personnage contient :
-- Une image
-- Un nom
-- Un sous-titre
-- Une barre de chakra animée
-- Des boutons pour augmenter / diminuer le chakra
+Elle permet de gérer une base de données de ninjas avec :
+- Nom
+- Village
+- Chakra
+- Image
 
 ---
 
 ## 🚀 Fonctionnalités
 
-- LazyColumn avec 6+ éléments par liste
-- Deux listes dynamiques (Naruto / Boruto)
-- Cards animées (expand au clic)
-- Gestion individuelle du chakra
-- Barre de progression animée
-- Désactivation du bouton "-" à 0
-- Thème clair / sombre (Material 3)
-- Images locales dans le dossier drawable
+### 📦 Base de données (Room)
+- Stockage local avec Room
+- Données persistantes
+
+### 🔁 CRUD complet
+- ➕ Ajouter une liste de ninjas
+- 📖 Lire les ninjas
+- ✏️ Modifier le chakra (+ / -)
+- ❌ Supprimer un ninja
+- 🧹 Supprimer tous les ninjas
+
+### 🔍 Recherche
+- Recherche dynamique par nom
+
+### 🎨 UI (Jetpack Compose)
+- LazyColumn avec Cards
+- Images des personnages
+- Barre de chakra (ProgressBar)
+- Animation des cartes
+- Background personnalisé (Konoha)
+
+### 🌗 Mode sombre
+- Switch pour activer/désactiver
+- Sauvegardé avec DataStore
 
 ---
 
-## 🌗 Mode Clair / Sombre
+## 🧠 Architecture
 
-Un **Switch** permet de basculer entre thème clair et sombre.
+Architecture **MVVM** :
 
-📍 Emplacement du Switch :  
-En haut de l’écran principal, à droite du texte **"Mode sombre"**, sous le titre *Naruto Universe*.
+- UI → Compose
+- ViewModel → logique
+- Repository → accès aux données
+- Room → base de données
 
-Le changement de thème est dynamique et modifie :
-- Les couleurs principales
-- Le fond
-- Les cartes
-- Les éléments Material 3
+---
+
+## 💾 DataStore
+
+Stocke :
+- Mode sombre
 
 ---
 
@@ -54,9 +68,10 @@ Le changement de thème est dynamique et modifie :
 - Kotlin
 - Jetpack Compose
 - Material 3
-- LazyColumn
-- Animations (animateFloatAsState, animateContentSize)
-- Gestion d’état avec `remember`
+- Room (SQLite)
+- ViewModel
+- DataStore
+- Coroutines + Flow
 
 ---
 
