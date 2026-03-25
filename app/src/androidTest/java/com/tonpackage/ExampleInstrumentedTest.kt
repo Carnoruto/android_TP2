@@ -1,24 +1,50 @@
-package com.tonpackage
-
-import androidx.test.platform.app.InstrumentationRegistry
-import androidx.test.ext.junit.runners.AndroidJUnit4
-
 import org.junit.Test
-import org.junit.runner.RunWith
-
 import org.junit.Assert.*
+import com.tonpackage.data.local.NinjaEntity
 
-/**
- * Instrumented test, which will execute on an Android device.
- *
- * See [testing documentation](http://d.android.com/tools/testing).
- */
-@RunWith(AndroidJUnit4::class)
-class ExampleInstrumentedTest {
+class ChakraTest {
+
     @Test
-    fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.tonpackage", appContext.packageName)
+    fun chakra_ne_devient_pas_negatif() {
+        val chakra = 0
+        val result = (chakra - 10).coerceAtLeast(0)
+        assertEquals(0, result)
+    }
+}
+
+
+class NinjaCreationTest {
+
+    @Test
+    fun creation_ninja_correcte() {
+        val ninja = NinjaEntity(name = "Naruto", village = "Konoha", chakra = 90)
+
+        assertEquals("Naruto", ninja.name)
+        assertEquals("Konoha", ninja.village)
+        assertEquals(90, ninja.chakra)
+    }
+}
+
+class SearchTest {
+
+    @Test
+    fun recherche_filtre_correctement() {
+
+        val list = listOf(
+            "Naruto",
+            "Sasuke",
+            "Sakura",
+            "Kakashi"
+        )
+
+        val query = "sa"
+
+        val result = list.filter {
+            it.lowercase().contains(query)
+        }
+
+        assertTrue(result.contains("Sasuke"))
+        assertTrue(result.contains("Sakura"))
+        assertFalse(result.contains("Naruto"))
     }
 }
